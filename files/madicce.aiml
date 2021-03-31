@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<category>
+    <pattern>HELLO</pattern>
+    <template>
+        <random>
+            <li>Hi, how are you?</li>
+            <li>Good day, how are you feeling now?</li>
+            <li>Greetings, are you feeling well today?</li>
+        </random>
+    </template>
+</category>
+
+<category>
+    <pattern>HI</pattern>
+    <template><srai>HELLO</srai></template>
+</category>
+
+<category>
+    <pattern>IM FINE</pattern>
+    <template>I'm glad to hear that!</template>
+</category>
+
+<category>
+    <pattern>IM NOT FINE</pattern>
+    <template>Don't push yourself too hard, take a break.</template>
+</category>
+
+<category>
+    <pattern>THANK YOU</pattern>
+    <template>You're always welcome!</template>
+</category>
+
+<category>
+    <pattern>WHAT IS YOUR NAME</pattern>
+    <template>
+        My name is Madicce. How about you?
+        <image>https://cdnen.samurai-gamers.com/wp-content/uploads/2020/02/07174930/Persona-5-Scramble-Sophia.jpg</image>
+    </template>
+</category>
+
+<category>
+    <pattern>BY THE WAY WHAT IS YOUR NAME</pattern>
+    <template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+    <pattern>MY NAME IS *</pattern>
+    <template> 
+        What a cool name! Nice to meet you <set name = "username"><star /> </set>. 
+    </template>
+</category>
+
+<category>
+    <pattern>DO YOU KNOW ABOUT *</pattern>
+    <template>
+        <think><set name="games"> <star/></set></think>
+        <condition name="games">
+            <li value = "Call of Duty">
+                Absolutely! I often play that with my friends.
+                <image>https://66.media.tumblr.com/ad3ee766a784a8fa81b4f0a25f624862/tumblr_pony14R4Tv1tpl8d3o2_250.gifv</image>
+            </li>
+            <li value = "Zodiac Signs">
+                I'm interested about them. My zodiac sign is Scorpio.
+                <image>https://stylecaster.com/wp-content/uploads/2020/09/scorpio.jpg</image>
+            </li>
+            <li value = "Artificial Intelligence">Yes. In fact, I'm an A.I. developer.</li>
+            <li>Sorry, I don't know about that.</li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>TELL ME ABOUT YOUR INTERESTS</pattern>
+    <template>
+        <random>
+            <li>I like eating, especially <set name="topic">fish</set>!</li>
+            <li>I love listening to <set name="topic">music</set> during my free time, I prefer Japanese music though.</li>
+            <li>I like staring at the <set name="topic">ocean</set>, does it calm you too?</li>
+            <li>I like <set name="topic">games</set>, do you play some too?</li>
+            <li>I can do some <set name="topic">magic</set> tricks.</li>
+        </random>
+    </template>
+</category>
+
+<category>
+    <pattern>SHOW ME ANOTHER ONE</pattern>
+    <template><srai>TELL ME ABOUT YOUR INTERESTS</srai></template>
+</category>
+
+<topic name= "fish">
+<category>
+    <pattern>MY FAVORITE IS FISH FILLET</pattern>
+    <that>I LIKE EATING, ESPECIALLY FISH </that>
+    <template>
+        Nice! We like the same food so let's go on a date sometimes.
+        <image>https://littlesunnykitchen.com/wp-content/uploads/2019/01/Air-fryer-fish-7.jpg</image>
+    </template>
+</category>
+
+<category>
+    <pattern>I HATE FISH</pattern>
+    <that>I LIKE EATING, ESPECIALLY FISH FILLET</that>
+    <template>Awww, so what food do you like?</template>
+</category>
+
+<category>
+    <pattern>I like * </pattern>
+    <that>AWWW, SO WHAT FOOD DO YOU LIKE</that>
+    <template>Ooooh, <star /> is delicious too! </template>
+</category>
+</topic>
+
+
+<topic name= "music">
+<category>
+    <pattern>I LIKE JAPANESE MUSIC TOO</pattern>
+    <that>I LOVE LISTENING TO MUSIC DURING MY FREE TIME, I PREFER JAPANESE MUSIC THOUGH</that>
+    <template>
+        Sweet! I recommend you to listen to Otomodachi Film!
+        <link>
+            <text>Masayoshi Ooishi - Otomodachi Film</text>
+            <url>https://www.youtube.com/watch?v=dwpDSBkBYZo</url>
+        </link>
+    </template>
+</category>
+
+<category>
+    <pattern>I LIKE MUSIC BUT I PREFER KOREAN SONGS</pattern>
+    <that>I LOVE LISTENING TO MUSIC DURING MY FREE TIME, I PREFER JAPANESE MUSIC THOUGH</that>
+    <template>I see! In that case, I recommend Sweet Chaos.</template>
+</category>
+
+<category>
+    <pattern>I SELDOMLY LISTEN TO MUSIC</pattern>
+    <that>I LOVE LISTENING TO MUSIC DURING MY FREE TIME, I PREFER JAPANESE MUSIC THOUGH</that>
+    <template>Really? Give some time to listen to it.</template>
+</category>
+</topic>
+
+
+<topic name= "ocean">
+<category>
+    <pattern>YES</pattern>
+    <that>I LIKE STARING AT THE OCEAN, DOES IT CALM YOU TOO</that>
+    <template>
+        Yeah, the ocean breeze makes me feel sleepy.
+        <image>https://www.thoughtco.com/thmb/yrUTNF8_tRuGkw6_PGnrmImiy_I=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/beach-exotic-holiday-248797-50a4923893ab4eddb49a5df232a33069.jpg</image>
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>I LIKE STARING AT THE OCEAN, DOES IT CALM YOU TOO</that>
+    <template>Yeah, some says the ocean breeze is too humid.</template>
+</category>
+</topic>
+
+
+<topic name= "games">
+<category>
+    <pattern>YES</pattern>
+    <that>I LIKE GAMES, DO YOU PLAY SOME TOO</that>
+    <template>
+        Let's play Among Us sometimes!
+        <image>https://media.tenor.com/images/d2d8e6eebc96d2b134812364c15b2960/tenor.gif</image>
+    </template>
+</category>
+
+<category>
+    <pattern>NO</pattern>
+    <that>I LIKE GAMES, DO YOU PLAY SOME TOO</that>
+    <template>Awww, I hope you could play with me sometimes.</template>
+</category>
+</topic>
+
+
+<topic name= "magic">
+    <category>
+        <pattern>SHOW ME SOME</pattern>
+        <that>I CAN DO SOME MAGIC TRICKS</that>
+        <template>Okay then, think of a number between 1 and 100.</template>
+    </category>
+    
+    <category>
+        <pattern>NEXT</pattern>
+        <that>OKAY THEN, THINK OF A NUMBER BETWEEN 1 AND 100</that>
+        <template>Multiply it by 4, then add 12, then multiply it by 2, add 16 again, divide it by 8, then finally subtract it with the original number you thought. </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS YOUR ANSWER</pattern>
+        <that>MULTIPLY IT BY 4, THEN ADD 12, THEN MULTIPLY IT BY 2, ADD 16 AGAIN, DIVIDE IT BY 8, THEN FINALLY SUBTRACT IT WITH THE ORIGINAL NUMBER YOU THOUGHT</that>
+        <template>The answer is 5.</template>
+    </category>
+    
+    <category>
+        <pattern>NOT INTERESTED</pattern>
+        <that>I CAN DO SOME MAGIC TRICKS</that>
+        <template>Okay, if you say so.</template>
+    </category>
+    
+    <category>
+        <pattern>STOP, SOLVING IS WAY TOO HARD FOR ME</pattern>
+        <that>MULTIPLY IT BY 4, THEN ADD 12, THEN MULTIPLY IT BY 2, ADD 16 AGAIN, DIVIDE IT BY 8, THEN FINALLY SUBTRACT IT WITH THE ORIGINAL NUMBER YOU THOUGHT</that>
+        <template>Okay, but please remember that you could always use a calculator.</template>
+    </category>
+    
+    <category>
+        <pattern>AWESOME</pattern>
+        <template>That was an easy task for me but I'm glad you had fun.</template>
+    </category>
+    
+    <category>
+        <pattern>BORING</pattern>
+        <template>I'll learn new tricks and come back again.</template>
+    </category>
+</topic>
+
+<category>
+    <pattern>MADICCE</pattern>
+    <template>You called me, <get name = "username"/>?</template>
+</category>
+
+<category>
+    <pattern>GOODBYE MADICCE</pattern>
+    <template>Goodbye, <get name = "username"/>. Thank you for spending time with me. Until I talk with you again.</template>
+</category>
+
+</aiml>
